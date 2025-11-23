@@ -17,6 +17,11 @@ def select_pdf(root):
         title="Select a PDF file",
         filetypes=[("PDF Files", "*.pdf")]
     )
+
+    if not file_path:
+        messagebox.showinfo("Cancelled", "No file selected.")
+        return None
+
     return file_path
 
 def get_user_choice():
@@ -37,10 +42,6 @@ def main():
 
     print("\nSelect a PDF file...")
     pdf_path = select_pdf(root)
-
-    if not pdf_path:
-        messagebox.showinfo("Cancelled", "No file selected.")
-        return
 
     print("\nSelected file:", pdf_path)
 
@@ -73,10 +74,6 @@ def main():
         elif choice == "-":
             print("\nSelect a new PDF file...")
             pdf_path = select_pdf(root)
-
-            if not pdf_path:
-                messagebox.showinfo("Cancelled", "No file selected.")
-                continue
 
             print("\nSelected file:", pdf_path)
 
