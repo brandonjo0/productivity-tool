@@ -43,6 +43,9 @@ def main():
     print("\nSelect a PDF file...")
     pdf_path = select_pdf(root)
 
+    if pdf_path is None:
+        return
+
     print("\nSelected file:", pdf_path)
 
     print("\nExtracting text...")
@@ -74,6 +77,9 @@ def main():
         elif choice == "-":
             print("\nSelect a new PDF file...")
             pdf_path = select_pdf(root)
+
+            if pdf_path is None:
+                continue
 
             print("\nSelected file:", pdf_path)
 
