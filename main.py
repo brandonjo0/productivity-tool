@@ -12,6 +12,12 @@ except Exception:
     pass
 
 def select_pdf(root):
+    """
+    Opens a file dialog for selecting a PDF file.
+
+    @param root: The Tkinter root context for the file dialog.
+    @return: The selected PDF file path, or None if the user cancels.
+    """
     file_path = filedialog.askopenfilename(
         parent=root,
         title="Select a PDF file",
@@ -25,6 +31,11 @@ def select_pdf(root):
     return file_path
 
 def get_user_choice():
+    """
+    Displays the menu options and retrieves user input.
+
+    @return: The user's selected menu option.
+    """
     print("\nWhat would you like to do?")
     print("1. Summarize the PDF")
     print("2. Create Notes")
@@ -36,6 +47,15 @@ def get_user_choice():
     return input("\nEnter your choice: ")
 
 def main():
+    """
+    Runs the study assistant tool.
+
+    Manages:
+    - PDF selection
+    - Extracting text from the file
+    - Interacting with the user through menu options
+    - Sending prompts to the GeminiClient for processing
+    """
     root = tk.Tk()
     root.withdraw()
     root.call('wm', 'attributes', '.', '-topmost', True)
